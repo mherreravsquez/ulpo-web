@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--bg);
 }
@@ -205,12 +209,13 @@ img {
     position: relative;
     z-index: 1;
     container-type: inline-size;
+    image-rendering:pixelated;
 }
 
 .bio-text {
     display: none;
     font-family: 'VT323', 'DotGothic16', monospace;
-    font-size: 32px;
+    font-size: clamp(18px, 5cqw, 32px);
     line-height: 1.3;
     letter-spacing: 0.5px;
     color: var(--bio-text);
@@ -246,6 +251,7 @@ img {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    image-rendering:pixelated;
 
     display: flex;
     align-items: center;
@@ -258,15 +264,20 @@ img {
     display: none;
 
     font-family: 'Press Start 2P', monospace;
-    font-size: clamp(14px, 2cqw, 40px);
+    font-size: clamp(14px, 4cqw, 32px);
     color: var(--bio-text);
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
 
     image-rendering:pixelated;
 }
 
 .contact-text-container{
+    container-type: inline-size;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
 }
 
 .contact-text.active{
@@ -316,6 +327,7 @@ img {
     align-items: flex-end;
     justify-content: center;
     padding: 2rem 2rem 0 2rem;
+    overflow-y: hidden;
 }
 
 .game-frame {
@@ -342,12 +354,13 @@ img {
 .game-screen {
     position: absolute;
     top: 11%;
-    left: 50.05%;
+    left: 50%;
     transform: translateX(-50%);
     width: 73.1%;
     aspect-ratio: 912 / 510;
     overflow: hidden;
     z-index: -4;
+    image-rendering:pixelated;
 }
 
 .game-screen-media {
@@ -396,6 +409,7 @@ img {
     height: auto;
     display: block;
     pointer-events: none;
+    min-width: 0;
 }
 
 @keyframes cartridge-float {
@@ -500,43 +514,52 @@ body.time-night .c5{
 /* MISSION BG PER HOUR */
 body.time-morning .mission {
     background-image: url("../assets/mission/bg-day.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 body.time-afternoon .mission {
     background-image: url("../assets/mission/bg-afternoon.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 body.time-night .mission {
     background-image: url("../assets/mission/bg-night.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 /* GAME BG PER HOUR */
 body.time-morning .game {
     background-image: url("../assets/game/bg-day.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 body.time-afternoon .game {
     background-image: url("../assets/game/bg-afternoon.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 body.time-night .game {
     background-image: url("../assets/game/bg-night.png");
-    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
     background-position: center;
 }
 
 /* HOUR SELECTOR (DEBUG ONLY) */
 .theme-debug {
+    display: none;
+    
+    /* 
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -548,6 +571,7 @@ body.time-night .game {
     padding: 0.6rem;
     border-radius: 8px;
     backdrop-filter: blur(4px);
+     */
 }
 
 .theme-debug-btn {
@@ -622,13 +646,9 @@ body.time-night .game {
         padding: 2rem 2rem;
     }
 
-    .bio-text {
-        font-size: clamp(14px, 3cqw, 20px);
-    }
-
     .contact-buttons {
         max-height: 30px;
-        gap: -5px;
+        gap: 4px;
     }
 
     .contact-btn{
@@ -643,6 +663,10 @@ body.time-night .game {
 
     .game-frame{
         width:96%;
+    }
+    
+    .game-cartridge {
+        min-width: 0;
     }
 
     /* FOOTER */
