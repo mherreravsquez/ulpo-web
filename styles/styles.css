@@ -285,13 +285,13 @@ img {
 }
 
 .contact-buttons {
-    display:flex;
-    gap:clamp(10px, 1.5vw, 24px);
-    flex-shrink:0;
+    display: flex;
+    gap: clamp(4px, 1.5vw, 24px);
+    flex-shrink: 0;
 }
 
 .contact-btn {
-    width: 96px;
+    width: clamp(12px, 6vw, 96px);
     aspect-ratio: 1 / 1;
     height: auto;
 
@@ -648,11 +648,6 @@ body.time-night .game {
 
     .contact-buttons {
         max-height: 30px;
-        gap: 4px;
-    }
-
-    .contact-btn{
-        width:60px;
     }
     
     /* GAME */
