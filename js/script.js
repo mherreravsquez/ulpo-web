@@ -86,3 +86,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateActiveButton();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const sections = [...document.querySelectorAll("main > section"), document.querySelector("footer")];
+
+    let current = 0;
+    let locked = false;
+
+    function goToSection(index) {
+
+        index = Math.max(0, Math.min(index, sections.length - 1));
+
+        current = index;
+
+        sections[current].scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        locked = true;
+
+        setTimeout(() => {
+            locked = false;
+        }, 800);
+    }
+
+    window.addEventListener("wheel", (e) => {
+
+        if (locked) return;
+
+        if (e.deltaY > 0) {
+            goToSection(current + 1);
+        } else {
+            goToSection(current - 1);
+        }
+
+    }, { passive: true });
+
+});
