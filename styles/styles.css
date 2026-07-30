@@ -4,6 +4,7 @@
     --bg-afternoon: #FEAE34;
     --bg-night: #262B44;
     --bio-text: #1F1A14;
+    --footer-text: #FFFFFF;
     --footer-bg: #F77622;
 }
 
@@ -472,7 +473,7 @@ img {
     font-size: clamp(18px, 5cqw, 32px);
     line-height: 1.3;
     letter-spacing: 0.5px;
-    color: var(--bio-text);
+    color: var(--footer-text);
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: none;
     padding-right: 10px;
