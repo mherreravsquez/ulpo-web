@@ -15,7 +15,7 @@
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
-            // Bio
+            // Bio (main page)
             bioTexts.forEach(text => text.classList.remove('active'));
             document
                 .querySelector(`.bio-text[data-lang="${lang}"]`)
@@ -32,6 +32,8 @@
             document
                 .querySelector(`.footer-text[data-lang="${lang}"]`)
                 .classList.add('active');
+            
+            
         });
 
     });
