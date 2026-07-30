@@ -3,6 +3,7 @@
     const tabs = document.querySelectorAll('.bio-tab');
     const bioTexts = document.querySelectorAll('.bio-text');
     const contactTexts = document.querySelectorAll('.contact-text');
+    const footerTexts = document.querySelectorAll('.footer-text');
 
     tabs.forEach(tab => {
 
@@ -26,6 +27,11 @@
                 .querySelector(`.contact-text[data-lang="${lang}"]`)
                 .classList.add('active');
 
+            // Footer
+            footerTexts.forEach(text => text.classList.remove('active'));
+            document
+                .querySelector(`.footer-text[data-lang="${lang}"]`)
+                .classList.add('active');
         });
 
     });
