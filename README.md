@@ -7,7 +7,7 @@ ulpo-web/
 │   │   ├── bg-afternoon.png
 │   │   ├── bg-day.png
 │   │   ├── bg-night.png
-│   │   ├── cartridge.png
+│   │   ├── cartridge-dana.png
 │   │   ├── console.png
 │   │   ├── fallbackvid.png
 │   │   └── tv-frame.png
@@ -111,8 +111,10 @@ ulpo-web/
 │       ├── style.css
 │       └── sw.js
 ├── js/
-│   └── script.js
+│   └── main.js
 ├── styles/
-│   └── styles.css
+│   ├── about-us.css
+│   └── core.css
+├── about-us.html
 └── index.html
 ```
