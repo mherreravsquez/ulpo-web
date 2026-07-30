@@ -98,7 +98,19 @@
                 <div class="game-content">
                     <div class="game-frame">
                         <div class="game-screen">
-                            <img src="assets/game/fallbackvid.png" alt="" class="game-screen-media">
+                            
+                            <!-- Imagen de respaldo (se ve antes de insertar el cartucho) -->
+                            <img src="assets/game/fallbackvid.png" alt="" class="game-screen-media" id="game-fallback">
+
+                            <!-- Iframe que cargará el juego -->
+                            <iframe
+                                    src="about:blank"
+                                    id="game-iframe"
+                                    class="game-screen-media"
+                                    style="display: none;"
+                                    allowfullscreen
+                            ></iframe>
+                            
                         </div>
     
                         <img src="assets/game/tv-frame.png" alt="" class="game-tv-frame">

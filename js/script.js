@@ -40,13 +40,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const cartridge = document.querySelector('.game-cartridge');
-
+    const fallbackImg = document.getElementById('game-fallback');
+    const gameIframe = document.getElementById('game-iframe');
+    
     cartridge.addEventListener('click', () => {
         if (cartridge.classList.contains('inserted')) return;
         cartridge.classList.add('inserted');
 
         setTimeout(() => {
-            // juego
+            fallbackImg.style.display = 'none';
+
+            // show iframe
+            gameIframe.style.display = 'block';
+
+            // load game
+            if (gameIframe.src === 'about:blank' || gameIframe.src === '') {
+                gameIframe.src = './games/DanaPrequel/index.html';
+            }
         }, 500);
     });
 });
