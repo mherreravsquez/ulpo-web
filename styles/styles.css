@@ -321,13 +321,22 @@ img {
 }
 
 /* GAME SECTION */
-.game {
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 2rem 2rem 0 2rem;
-    overflow-y: hidden;
+.game{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.game-content{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    overflow-y:hidden;
+    padding:2rem 2rem 0;
 }
 
 .game-frame {
@@ -426,7 +435,8 @@ img {
 
 /* FOOTER */
 .site-footer {
-    width: 100%;
+    width:100%;
+    flex-shrink:0;
     background-color: var(--footer-bg);
     display: flex;
     align-items: center;

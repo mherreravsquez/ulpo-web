@@ -116,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (locked) return;
 
+        if (window.innerWidth <= 768) return;
+
         if (e.deltaY > 0) {
             goToSection(current + 1);
         } else {
