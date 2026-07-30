@@ -99,10 +99,8 @@
                     <div class="game-frame">
                         <div class="game-screen">
                             
-                            <!-- Imagen de respaldo (se ve antes de insertar el cartucho) -->
                             <img src="assets/game/fallbackvid.png" alt="" class="game-screen-media" id="game-fallback">
 
-                            <!-- Iframe que cargará el juego -->
                             <iframe
                                     src="about:blank"
                                     id="game-iframe"
@@ -115,9 +113,17 @@
     
                         <img src="assets/game/tv-frame.png" alt="" class="game-tv-frame">
                         <img src="assets/game/console.png" alt="" class="game-console">
-    
+
+                        <button class="game-nav-arrow game-nav-prev" aria-label="Cartucho anterior">
+                            <img src="assets/game/arrow-left.png" alt="">
+                        </button>
+
                         <button class="game-cartridge" aria-label="Insertar cartucho">
-                            <img src="assets/game/cartridge-dana.png" alt="">
+                            <img src="assets/game/cartridge-dana.png" alt="" id="game-cartridge-img">
+                        </button>
+
+                        <button class="game-nav-arrow game-nav-next" aria-label="Siguiente cartucho">
+                            <img src="assets/game/arrow-right.png" alt="">
                         </button>
                     </div>
                 </div>

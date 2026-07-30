@@ -363,7 +363,7 @@ img {
 
 .game-screen {
     position: absolute;
-    top: 10.95%;
+    top: 11%;
     left: 50%;
     transform: translateX(-50%);
     width: 73.1%;
@@ -371,12 +371,55 @@ img {
     overflow: hidden;
     z-index: -4;
     image-rendering:pixelated;
+    border-width: 2px;
+    border-color: #1a1a2e;
 }
 
 .game-screen-media {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* CARRUSEL DE CARTUCHOS - FLECHAS */
+.game-nav-arrow {
+    position: absolute;
+    top: 43%;                    /* alineado al centro vertical del hueco de pantalla */
+    transform: translateY(-50%);
+    width: 8%;
+    max-width: 72px;
+    min-width: 32px;
+    aspect-ratio: 1 / 1;
+    z-index: 5;                  /* por encima del cartridge (4) y del tv-frame */
+
+    border: none;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+
+    transition: transform 0.15s ease;
+}
+
+.game-nav-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.game-nav-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.game-nav-prev {
+    left: 2%;
+}
+
+.game-nav-next {
+    right: 2%;
 }
 
 #game-iframe {
@@ -435,7 +478,6 @@ img {
 .game-cartridge.inserted {
     animation: none;
     top: 75.75%;
-    pointer-events: none;
     z-index: -1
 }
 
@@ -474,8 +516,8 @@ img {
 
     white-space: pre-line;
     
-    font-family: 'VT323', 'DotGothic16', monospace;
-    font-size: clamp(18px, 5cqw, 32px);
+    font-family: 'Arial', monospace;
+    font-size: clamp(10px, 5cqw, 28px);
     line-height: 1.3;
     letter-spacing: 0.5px;
     color: var(--footer-text);

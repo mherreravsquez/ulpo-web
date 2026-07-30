@@ -41,26 +41,73 @@
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Agrega un objeto por cada juego/cartucho nuevo, mismo formato
+    const cartridges = [
+        {
+            title: 'Dana Prequel',
+            cartridgeImg: 'assets/game/cartridge-dana.png',
+            fallbackImg: 'assets/game/fallbackvid.png',
+            gameSrc: './games/DanaPrequel/index.html'
+        }
+        
+        // { title: 'Juego 2', cartridgeImg: '...', fallbackImg: '...', gameSrc: '...' },
+    ];
+
+    let currentIndex = 0;
+
     const cartridge = document.querySelector('.game-cartridge');
+    const cartridgeImg = document.getElementById('game-cartridge-img');
     const fallbackImg = document.getElementById('game-fallback');
     const gameIframe = document.getElementById('game-iframe');
-    
+    const prevBtn = document.querySelector('.game-nav-prev');
+    const nextBtn = document.querySelector('.game-nav-next');
+
+    function renderCartridge() {
+        const data = cartridges[currentIndex];
+        cartridgeImg.src = data.cartridgeImg;
+        cartridgeImg.alt = data.title;
+        fallbackImg.src = data.fallbackImg;
+        fallbackImg.alt = data.title;
+    }
+
+    function resetScreen() {
+        cartridge.classList.remove('inserted');
+        gameIframe.style.display = 'none';
+        gameIframe.src = 'about:blank';
+        fallbackImg.style.display = 'block';
+    }
+
+    function changeCartridge(direction) {
+        // si había un juego insertado, lo "expulsa" antes de cambiar de cartucho
+        if (cartridge.classList.contains('inserted')) {
+            resetScreen();
+        }
+
+        currentIndex = (currentIndex + direction + cartridges.length) % cartridges.length;
+        renderCartridge();
+    }
+
+    prevBtn.addEventListener('click', () => changeCartridge(-1));
+    nextBtn.addEventListener('click', () => changeCartridge(1));
+
     cartridge.addEventListener('click', () => {
-        if (cartridge.classList.contains('inserted')) return;
+        if (cartridge.classList.contains('inserted')) {
+            resetScreen();
+        return;}
+        
         cartridge.classList.add('inserted');
+
+        const data = cartridges[currentIndex];
 
         setTimeout(() => {
             fallbackImg.style.display = 'none';
-
-            // show iframe
             gameIframe.style.display = 'block';
-
-            // load game
-            if (gameIframe.src === 'about:blank' || gameIframe.src === '') {
-                gameIframe.src = './games/DanaPrequel/index.html';
-            }
+            gameIframe.src = data.gameSrc;
         }, 500);
     });
+
+    renderCartridge();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
