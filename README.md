@@ -4,9 +4,12 @@ ulpo-web/
 │   ├── footer/
 │   │   └── logo-footer.gif
 │   ├── game/
+│   │   ├── arrow-left.png
+│   │   ├── arrow-right.png
 │   │   ├── bg-afternoon.png
 │   │   ├── bg-day.png
 │   │   ├── bg-night.png
+│   │   ├── cartridge-2.png
 │   │   ├── cartridge-dana.png
 │   │   ├── console.png
 │   │   ├── fallbackvid.png

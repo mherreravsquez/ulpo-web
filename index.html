@@ -15,6 +15,23 @@
 </head>
 
     <body>
+
+    <div class="about-modal" id="about-modal" aria-hidden="true">
+        <div class="about-modal-backdrop" data-modal-close></div>
+        <div class="about-modal-content">
+            <div class="about-modal-inner">
+                <button class="about-modal-close" src="assets/about-us/close-btn.png" aria-label="Cerrar" data-modal-close>&times;</button>
+                <div class="about-modal-text">
+                    <p class="about-modal-copy active" data-lang="es">Somos una empresa localizada en Chile que apunta al desarrollo de experiencias interactivas enfocadas en tres principios: accesibilidad, estética y rentabilidad. Tenemos más de 8 años de experiencia trabajando diferentes modelos de negocios adaptados para las necesidades de nuestros clientes, tanto internos como externos.<br><br>Le brindamos la misma energía y experiencia tanto a nuestras propias IPs como a nuestros proyectos externos.</p>
+                    <p class="about-modal-copy" data-lang="en">We are a company based in Chile dedicated to developing interactive experiences centered on three principles: accessibility, aesthetics, and profitability. We have over 8 years of experience working with different business models tailored to the needs of our clients, both internal and external.<br><br>We bring the same energy and expertise to both our own IPs and our external projects.</p>
+                    <p class="about-modal-copy" data-lang="ja"></p>
+                </div>
+                <div class="about-modal-photo">
+                    <img src="assets/about-us/photo.png" alt="Equipo UlpoMedia">
+                </div>
+            </div>
+        </div>
+    </div>
     
         <main>
             <section id="hero" class="hero">
@@ -78,13 +95,13 @@
                     </div>
                     
                     <div class="contact-buttons">
-                        <a class="contact-btn" href="https://discord.gg/" target="_blank" rel="noopener noreferrer" aria-label="About Us">
+                        <button class="contact-btn" id="about-us-trigger" aria-label="About Us">
                             <img src="assets/mission/aboutus.png" alt="">
-                        </a>
+                        </button>
                         <a class="contact-btn" href="mailto:contacto@ulpomedia.com" aria-label="Email">
                             <img src="assets/mission/email.png" alt="">
                         </a>
-                        <a class="contact-btn" href="about-us.html" target="_blank" rel="noopener noreferrer" aria-label="Links">
+                        <a class="contact-btn" href="https://linktr.ee/ulpomedia" target="_blank" rel="noopener noreferrer" aria-label="Links">
                             <img src="assets/mission/links.png" alt="">
                         </a>
                     </div>

@@ -42,6 +42,52 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const modal = document.getElementById('about-modal');
+    const trigger = document.getElementById('about-us-trigger');
+
+    if (!modal || !trigger) return;
+
+    function getActiveLang() {
+        const activeTab = document.querySelector('.bio-tab.active');
+        return activeTab ? activeTab.dataset.lang : 'es';
+    }
+
+    function openModal() {
+        const lang = getActiveLang();
+
+        modal.querySelectorAll('.about-modal-copy').forEach(p => {
+            p.classList.toggle('active', p.dataset.lang === lang);
+        });
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('modal-open'); // <-- nuevo
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('modal-open'); // <-- nuevo
+        document.body.classList.remove('modal-open');
+    }
+
+    trigger.addEventListener('click', openModal);
+
+    modal.querySelectorAll('[data-modal-close]').forEach(el => {
+        el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
     // Agrega un objeto por cada juego/cartucho nuevo, mismo formato
     const cartridges = [
         {
@@ -49,6 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
             cartridgeImg: 'assets/game/cartridge-dana.png',
             fallbackImg: 'assets/game/fallbackvid.png',
             gameSrc: './games/DanaPrequel/index.html'
+        },
+        {
+            title: 'Juego2',
+            cartridgeImg: 'assets/game/cartridge-2.png',
+            fallbackImg: 'assets/game/fallbackvid.png',
+            gameSrc: 'https://mherreravsquez.github.io/'
         }
         
         // { title: 'Juego 2', cartridgeImg: '...', fallbackImg: '...', gameSrc: '...' },
@@ -73,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetScreen() {
         cartridge.classList.remove('inserted');
+        prevBtn.classList.remove('tucked');   
+        nextBtn.classList.remove('tucked');
         gameIframe.style.display = 'none';
         gameIframe.src = 'about:blank';
         fallbackImg.style.display = 'block';
@@ -97,7 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;}
         
         cartridge.classList.add('inserted');
-
+        prevBtn.classList.add('tucked');  
+        nextBtn.classList.add('tucked');
+        
         const data = cartridges[currentIndex];
 
         setTimeout(() => {
@@ -180,7 +236,19 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("wheel", (e) => {
 
         if (locked) return;
+        if (document.body.classList.contains('modal-open')) return; // <-- nuevo
+        if (window.innerWidth <= 768) return;
 
+        if (e.deltaY > 0) {
+            goToSection(current + 1);
+        } else {
+            goToSection(current - 1);
+        }
+
+    }, { passive: true });window.addEventListener("wheel", (e) => {
+
+        if (locked) return;
+        if (document.body.classList.contains('modal-open')) return; // <-- nuevo
         if (window.innerWidth <= 768) return;
 
         if (e.deltaY > 0) {
