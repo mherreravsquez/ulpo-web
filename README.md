@@ -1,6 +1,10 @@
 ﻿```
 ulpo-web/
 ├── assets/
+│   ├── about-us/
+│   │   ├── close-btn.png
+│   │   ├── photo.png
+│   │   └── text-bg.png
 │   ├── footer/
 │   │   └── logo-footer.gif
 │   ├── game/
@@ -116,8 +120,6 @@ ulpo-web/
 ├── js/
 │   └── main.js
 ├── styles/
-│   ├── about-us.css
 │   └── core.css
-├── about-us.html
 └── index.html
 ```
