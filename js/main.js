@@ -212,12 +212,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sections = [...document.querySelectorAll("main > section"), document.querySelector("footer")];
 
+    const cartridge = document.querySelector(".game-cartridge");
+    const prevBtn = document.querySelector(".game-nav-prev");
+    const nextBtn = document.querySelector(".game-nav-next");
+    const fallbackImg = document.getElementById("game-fallback");
+    const gameIframe = document.getElementById("game-iframe");
+    
     let current = 0;
     let locked = false;
+
+    function resetGame() {
+
+        cartridge.classList.remove("inserted");
+
+        prevBtn.classList.remove("tucked");
+        nextBtn.classList.remove("tucked");
+
+        gameIframe.style.display = "none";
+        gameIframe.src = "about:blank";
+
+        fallbackImg.style.display = "block";
+    }
 
     function goToSection(index) {
 
         index = Math.max(0, Math.min(index, sections.length - 1));
+
+        const leavingGame =
+            current === 2 &&
+            index !== 2 &&
+            cartridge.classList.contains("inserted");
 
         current = index;
 
@@ -229,7 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
         locked = true;
 
         setTimeout(() => {
+
+            // El scroll ya terminó
+            if (leavingGame) {
+                resetGame();
+            }
+
             locked = false;
+
         }, 800);
     }
 
