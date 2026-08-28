@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gameSrc: './games/DanaPrequel/index.html'
         },
         {
-            title: 'Web Tankz!',
+            title: 'Tank City',
             cartridgeImg: 'assets/game/cartridge-2.png',
             fallbackImg: 'assets/game/fallbackvid.png',
             gameSrc: './games/TankCity/index.html'
