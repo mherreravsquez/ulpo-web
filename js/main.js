@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
             gameSrc: './games/DanaPrequel/index.html'
         },
         {
-            title: 'Watch Tank',
+            title: 'Web Tankz!',
             cartridgeImg: 'assets/game/cartridge-2.png',
             fallbackImg: 'assets/game/fallbackvid.png',
-            gameSrc: './games/WatchTank/index.html'
+            gameSrc: './games/TankCity/index.html'
         }
         
         // { title: 'Juego 2', cartridgeImg: '...', fallbackImg: '...', gameSrc: '...' },
