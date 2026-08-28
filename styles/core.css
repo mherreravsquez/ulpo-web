@@ -535,6 +535,7 @@ body.modal-open {
     border: 2px solid #1a1a2e;
     box-sizing: border-box;
     display: contain;
+    overflow: hidden;
 }
 
 .game-screen-media {
